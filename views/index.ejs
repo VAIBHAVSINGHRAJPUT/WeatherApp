@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <!-- FAVICON  -->
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3104/3104619.png">
+
+  <!-- BOOTSTRAP LINK  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+  <!-- STYLESHEET  -->
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+
+  <!-- FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/ac03ba53df.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- HOME SECTION  -->
+  <section class="home-section">
+    <div class="container-fluid">
+      <!-- NAVBAR  -->
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand text-light" href="#">Weather App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#forecast">Forecast</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img class="myImg"
+                  src="https://c4.wallpaperflare.com/wallpaper/1007/482/453/one-piece-portgas-d-ace-hd-wallpaper-thumb.jpg"
+                  alt="">
+                  &nbsp; Developer
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.linkedin.com/in/vaibhav-singh-rajput-613a4a213/">LinkedIn</a></li>
+                <li><a class="dropdown-item" href="https://github.com/VAIBHAVSINGHRAJPUT">Github</a></li>
+                <li><a class="dropdown-item" href="https://www.behance.net/thevsrchannel">Behance</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      <!-- HOME SECTION CONTENT  -->
+      <div class="ml-5 bar">
+
+        <!-- SEARCH BAR  -->
+        <div class="searchBar col-lg-5">
+          <h1 style="font-size: 35px;">Check the Weather of Your City</h1>
+          <p>Have a play around with the project and check what the weather forecast says about your city.</p>
+
+          <!-- CITY SEARCH FORM  -->
+          <form action="/" method="post">
+            <div class="input-group mb-3">
+              <input id="searchCity" class="form-control" type="text" name="place" id="place" placeholder="City name"
+                aria-describedby="inputGroup-sizing-default">
+              <button class="btn" type="submit"> Search &nbsp;<i class="fa fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- RESULT BAR  -->
+        <div class="resultBar col-lg-6">
+          <div class="tempBox">
+            <div class="info in">
+              <h1 class="cityName">
+                <%=CityName%>
+              </h1>
+              <p>
+                <%= today %>
+              </p>
+            </div>
+            <div class="temp in">
+              <h1 class="tempin">
+                <%=Temp%>
+              </h1>
+            </div>
+
+          </div>
+          <div class="otherBox">
+            <!-- HUMIDITY  -->
+            <div class="subOther">
+              <h5 class="humidity">
+                <%=humidity%> <img class="subOtherImg" src="https://cdn-icons-png.flaticon.com/512/6613/6613582.png"
+                    alt="">
+              </h5>
+              <h6>Humidity</h6>
+            </div>
+
+            <!-- WINDSPEED  -->
+            <div class="subOther">
+              <h5 class="windSpeed">
+                <%=windSpeed%> <img class="subOtherImg" src="https://cdn-icons-png.flaticon.com/512/2011/2011452.png"
+                    alt="">
+              </h5>
+              <h6>Wind</h6>
+            </div>
+
+            <!-- PRESSURE   -->
+            <div class="subOther">
+              <h5 class="pressure">
+                <%=pressure%><img class="subOtherImg" src="https://cdn-icons-png.flaticon.com/512/1444/1444819.png"
+                    alt="">
+              </h5>
+              <h6>Pressure</h6>
+            </div>
+
+            <!-- MAXIMUM TEMPERATURE  -->
+            <div class="subOther">
+              <h5 class="maxTemp">
+                <%=maxTemp%><img class="subOtherImg" src="https://cdn-icons-png.flaticon.com/512/6661/6661473.png"
+                    alt="">
+              </h5>
+              <h6>Maximum Temp.</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FORECAST SECTION  -->
+  <section class="forecastSec" id="forecast">
+    <div class="container-fluid forecastContainer py-5">
+      <h1 class="forecastHeading mb-5">Forecast Weather</h1>
+      <div class="carousel-container">
+
+        <!-- FORECAST CAROUSEL  -->
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <!-- TOMORROW  -->
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="col-lg-12 forecastCard row">
+                <div class="forecastCardTemp col-lg-5 col-md-10 col-sm-10">
+                  <p style="text-transform:capitalize">
+                    <%=desc%>
+                  </p>
+                  <h2 class="">
+                    <%=dayTemp%>
+                  </h2>
+                  <p><i class="fa fa-location"></i>
+                    <%=CityName%>
+                  </p>
+                </div>
+                <div class="forecastCardMore col-lg-5 col-md-10 col-sm-10">
+                  <h6 class="moreDetails">Humidity : <%=forecastHumidity%>
+                  </h6>
+                  <h6 class="moreDetails">Wind Speed : <%=forecaseWindSpeed%>
+                  </h6>
+                  <h6 class="moreDetails">Pressure : <%=forecastPressure%>
+                  </h6>
+                  <p>
+                    <%= date%>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY AFTER TOMORROW  -->
+            <div class="carousel-item" data-bs-interval="2000">
+              <div class="col-lg-12 forecastCard row">
+                <div class="forecastCardTemp col-lg-5 col-md-10 col-sm-10">
+                  <p style="text-transform:capitalize">
+                    <%=desc2%>
+                  </p>
+
+                  <h2 class="">
+                    <%=dayTemp2%>
+                  </h2>
+                  <p><i class="fa fa-location"></i>
+                    <%=CityName%>
+                  </p>
+                </div>
+                <div class="forecastCardMore col-lg-5 col-md-10 col-sm-10">
+                  <h6 class="moreDetails">Humidity : <%=forecastHumidity2%>
+                  </h6>
+                  <h6 class="moreDetails">Wind Speed : <%=forecaseWindSpeed2%>
+                  </h6>
+                  <h6 class="moreDetails">Pressure : <%=forecastPressure2%>
+                  </h6>
+                  <p>
+                    <%= date2%>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY AFTER DAY AFTER TOMORROW  -->
+            <div class="carousel-item">
+              <div class="col-lg-12 forecastCard row">
+                <div class="forecastCardTemp col-lg-5 col-md-10 col-sm-10">
+                  <p style="text-transform:capitalize">
+                    <%=desc3%>
+                  </p>
+
+                  <h2 class="">
+                    <%=dayTemp3%>
+                  </h2>
+                  <p><i class="fa fa-location"></i>
+                    <%=CityName%>
+                  </p>
+                </div>
+                <div class="forecastCardMore col-lg-5 col-md-10 col-sm-10">
+                  <h6 class="moreDetails">Humidity : <%=forecastHumidity3%>
+                  </h6>
+                  <h6 class="moreDetails">Wind Speed : <%=forecaseWindSpeed3%>
+                  </h6>
+                  <h6 class="moreDetails">Pressure : <%=forecastPressure3%>
+                  </h6>
+                  <p>
+                    <%= date3%>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAROUSEL PREV AND NEXT BUTTONS  -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION  -->
+  <section id="about">
+    <div class="container-fluid">
+      <h1 class="my-4">About Weather App</h1>
+      <p>This Weather App helps to find the temperature and other weather related data of your city.
+        <br>
+        To get the data of your city follow the following step: 
+        <br>
+        <b>Step:</b>
+        <!-- <br> -->
+        Fill the name of your city in the search bar [Note: Make sure to spell the name of the city correctly]. 
+        <br>
+        <b>Result:</b>
+        <!-- <br> -->
+        Now you will get the list of Information -:
+        <ol>
+          <li>Temperature</li>
+          <li>Humidity</li>
+          <li>Pressure</li>
+          <li>Wind Speed</li>
+          <li>Max. Temperature</li>
+        </ol>
+        Also 3 days forecast of the weather!
+
+        <br>
+        <br>
+        <b>Technologies Used: </b>Node JS, Express JS, EJS, CSS3 and bootstrap5
+        <br>
+        <b>API Included: </b>Open Weather
+      </p>
+
+      
+    </div>
+  </section>
+
+
+      <!-- FOOTER SECTION  -->
+      <footer class="section-white footer py-3" id="footer">
+        <a href="https://twitter.com/Vaibhav17000818" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-title="Twitter"><i class="social-icon p-3 fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/vaibhav-singh-rajput-613a4a213/" target="_blank" data-bs-toggle="tooltip"
+            data-bs-placement="top" data-bs-title="LinkedIn"><i class="social-icon p-3 fab fa-linkedin"
+                aria-hidden="true"></i></a>
+        <a href="" target="_blank" data-bs-toggle="tooltip"
+            data-bs-placement="top" data-bs-title="Website"><i class="social-icon p-3 fa fa-globe"
+                aria-hidden="true"></i></a>
+        <a href="https://mail.google.com/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-title="Email"><i class="social-icon p-3 fas fa-envelope" aria-hidden="true"></i></a>
+
+        <p class="navbar-brand footer-brand">Weather App</p>
+
+
+        <p class="">© Copyright <%=year %> - Developed by Vaibhav Rajput</p>
+
+    </footer>
+</body>
+<!-- BOOTSTRAP SCRIPT  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAva5oAX6wRbm7Mz-6_YeMBNgsnWxYnQzA&libraries=places&callback=activatePlacesSearch">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  function activatePlacesSearch(){
+    var input = document.querySelector('searchCity');
+    var autocomplete = new google.maps.places.Autocomplete(input); 
+    console.log(autocomplete);
+  }
+</script>
+</body>
+
+
+</html>

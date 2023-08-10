@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    color: rgb(255, 241, 240);
+    background-image: linear-gradient(to right bottom, #A2CFFD, #3b62b5, #1c325f, #132a51, #091d3a);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  
+  
+  /* Navbar  */
+  .navbar {
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  .nav-item {
+    padding-right: 50px;
+  }
+  
+  .nav-link {
+    color: #fff;
+  }
+  
+  .nav-link img{
+    margin-top: -6%;
+  }
+  
+  .nav-link:hover {
+    color: rgb(166, 175, 244);
+  }
+  
+  .myImg {
+    border: 3px solid white;
+    width: 40px;
+    border-radius: 50%;
+  
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    margin-left: 2.5%;
+  }
+  
+  /* HOME CONTENT  */
+  .img {
+    width: 100%;
+  }
+  
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .searchBar {
+    margin-top: 5%;
+    width: 40%;
+    padding: 3% 2%;
+  }
+  
+  .resultBar {
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 2%;
+    width: 48%;
+  }
+  
+  .tempBox {
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(250, 248, 248, 0.15);
+    padding: 3%;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+  }
+  
+  .info {
+    width: 45%;
+  }
+  
+  .temp {
+    width: 50%;
+    text-align: right;
+  }
+  
+  .otherBox {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .subOther {
+    text-align: center;
+    margin: 2% 2% 2% 0;
+    width: 23%;
+    padding: 3%;
+    background: rgba(255, 255, 255, 0.058);
+    box-shadow: 0 8px 32px 0 rgba(82, 90, 176, 0.37);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 10px;
+  }
+  
+  .subOther:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.188);
+  }
+  
+  .subOtherImg {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .searchBar input,
+  .btn {
+    display: inline-block;
+    width: 70%;
+  }
+  
+  .searchBar .btn {
+    width: fit-content;
+    position: relative;
+    margin-right: 20px;
+    font-size: 18px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: #fff;
+  }
+  
+  
+  /* FORECAST SECTION  */
+  .forecastSec {
+    justify-content: center;
+  }
+  
+  .row {
+    justify-content: center;
+    display: flex;
+  }
+  
+  .forecastCard {
+    padding: 5% 13%;
+    background: rgba(255, 255, 255, 0.058);
+    box-shadow: 0 8px 32px 0 rgba(82, 90, 176, 0.37);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border-radius: 10px;
+  }
+  
+  .forecastHeading {
+    text-align: center;
+    color: #2c4986;
+    font-weight: 900;
+  }
+  
+  .forecastContainer {
+    background-color: #fff;
+  }
+  
+  .carousel {
+    background-image: linear-gradient(to right bottom, #1c3879, #2c4986, #3d5a92, #4e6c9e, #607eaa);
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: -12px 12px 4px 4px rgba(95, 79, 191, 0.74);
+    -webkit-box-shadow: -12px 12px 4px 4px rgba(95, 79, 191, 0.74);
+    -moz-box-shadow: -12px 12px 4px 4px rgba(95, 79, 191, 0.74);
+    width: 50%;
+    border-radius: 8px;
+  }
+  
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .forecastCardMore {
+    text-align: right;
+  }
+  
+  
+  /* FOOTER SECTION  */
+  #footer {
+    text-align: center;
+    background-color: #fff;
+    color: #1c3879;
+  }
+  
+  .social-icon {
+    color: #1c3879;
+  }
+  
+  .social-icon:hover{
+    color: rgb(166, 175, 244);
+  }
+  
+  #footer p {
+    margin: 0;
+  }
+  
+  .footer-brand {
+    color: #1c3879;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+  
+    .resultBar,
+    .searchBar {
+        width: 100%;
+        margin-left: 0;
+    }
+  
+    .carousel {
+        width: 80%;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .forecastCardMore {
+        text-align: left;
+    }
+  }
+  
+  @media only screen and (max-width: 650px) {
+    .subOther {
+        width: 48%;
+        max-width: 250px;
+    }
+    
+    .nav-link img{
+        margin-top:1%;
+        margin-left: -2%;
+    }
+    .carousel {
+        width: 90%;
+    }
+  }
